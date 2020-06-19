@@ -217,3 +217,45 @@ SOLID principles
     Dependency inversion principle 
         depend on interfaces rather than on concrete classes 
             loose coupling rather than tight coupling 
+Testing
+    unit testing
+        put a testing program in it's own project to keep it in its own assembly
+        testing the most granualr possible unit of functionality   
+            (one branch of one methdo at a time)
+            isolating each part of the code from the rest as much as possible 
+        test-driven development (TDD)
+            1. scaffold classes with skeleton code (just enough that they compile)
+            2. write thorough unit tests for some of the code (that fail because the code isn't written yet)
+            3. write just enough code to make the tests pass (avoid writing code that isn't already being tested)
+    integration testing
+        testing 2+ components working together
+    system testing  
+        test the whole thing together
+    user-acceptance testing 
+        have the user or a suitable standin evaluated the product from a user's perspective
+    functional testing 
+        does the app fulfill some particular function 
+
+    .NET testing frameworks
+        xUnit (3rd party)
+        NUnit (3rd party)
+        MSTest 
+    
+    3 steps: arrange, act, assert
+        arrange: any neccessary setup before the "act". everything in this section is assumbed to wrok correctly
+            (if possible/relevant, ist should itself get other unit tests)
+        act: the specific thing (usually 1 method call) that this method is responsible for testing
+        assert: run checks as much as possible to verify the correct behavior 
+            in xUnit, use Assert static class 
+            in case of an unhandled exception, the test is considered failed 
+            Assert.Empty() checks for empty objects 
+            Assert.Equal(expected value, actual value) 
+    
+    Test methods must have  attributes
+        [Fact] 0 parameter test
+        [Theory] test that has several possible values using the [InLineData()] attribute
+            [InLineData(param1, param2, ...)]
+                    .
+                    .
+                    .
+            

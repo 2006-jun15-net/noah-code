@@ -30,9 +30,14 @@ namespace Serialization
             WriteStringToFile(filePath, json);
         }
        
+        
         private static void WriteStringToFile(string filePath, string json)
         {
             File.WriteAllText(filePath, json);
+            //WriteAllTextAsync method exists as well
+            //await File.WriteAllTextAsync(filePath, json);
+            //you would need "async" modifier for this method
+            //
         }
 
         //serialize the objects into a string in JSON Format
