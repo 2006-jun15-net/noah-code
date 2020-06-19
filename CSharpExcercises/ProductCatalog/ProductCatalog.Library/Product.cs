@@ -1,8 +1,8 @@
 using System;
 
-namespace ProductCatalog.App
+namespace ProductCatalog.Library
 {
-    class Product
+    public class Product
     {
         private double _price;
         // an "auto-implemented property" or just "auto-property"

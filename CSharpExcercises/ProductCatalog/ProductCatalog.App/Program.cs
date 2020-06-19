@@ -1,8 +1,9 @@
 ﻿using System;
+using ProductCatalog.Library;
 
 namespace ProductCatalog.App
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -15,5 +16,6 @@ namespace ProductCatalog.App
 
            Console.WriteLine($"price after discount: ${product.Price}");
         }
+
     }
 }

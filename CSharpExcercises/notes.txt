@@ -1,0 +1,122 @@
+Interfaces
+    specifies requirements on classes that mark themselves as 
+        implementors of that interface
+    There must be such a method on any class
+        that claims to implement the interface
+
+    The point of creating an interface is to decouple
+        that needs functionality and code that provides 
+        functionality
+
+    e.g. methods in the Program class might accept a
+        particular interface as a parameter. Then you 
+        could pass into those methods an instance of 
+        any class that implements that interface
+
+Generics
+    use <T> where T is the data type 
+    Classes that use generics specify what type the classes can deal with
+
+Type Casting
+    Implicit: An instance of an interface can be assigned to any other 
+        instance that implements that interface
+    Explicit: If you try to assign an instance of the interface to an implementing 
+        class, it won't work. Unless you know for sure that the implementing
+        class is actually an instance of the interface.
+
+Architecturual principle
+-Separation of concerns: separating variables, methods, and classes that relate to one another
+    Benefits:
+        code readability, flexible, code reuse 
+        maintainability, testability
+    For projects, this kind of separation is common:
+        application project just handles user input/output
+        various library projects handle the actual c# logic
+
+Libraries
+    Application projects reference library projects in .csproj files
+
+Solutions
+    A solution consolidates projects together. Does not influence compiling
+
+Access Modifiers
+    Non-nested types: (e.g. class, interface, structs, enums,  etc.)
+    only two access levels: internal, public
+        -internal: access for everything in project
+        -public: unrestricted
+
+    Members: 4 access levels
+        default access is private
+        -public 
+        -internal
+        -private
+        -protected: accesss to containing class and any child class
+
+Types(Refernce or Value)
+    Value ex: int, bool, double, struct,...
+    Reference ex: string, List, Array, Class,...
+
+    For value types, CLR knows it's always safe to free that memory when 
+        the variable holding that value goes out of scope
+        (e.g the end of the method)
+    for reference types, CLR does not know how many variables across how 
+        many different threads, objects, etc. might be pointing to given value
+    
+    For C# memory is managed (garbage collection)
+        periodically, the CLR checks all memory, and frees anything with no variables
+        (or fields etc) pointing to it
+
+    "managed code", e.g. C#, means code running in an environment like the CLR
+        that manages deallocating memory for the programmer.
+    "unmanaged code" e.g. C 
+
+Comment in VS:
+    comment: Ctrl+K, Ctrl+C
+    uncomment: with Ctrl+K, Ctrl+U
+
+Inheritance
+    A class without an explicit constructor implicitly gets a no-args constructor
+        e.g. public Circle()
+    Base class = parent class
+    derived class = child class
+
+    Every childe class constructor needs ot call some parent class constructor first
+        default calls the zero-parameter one, if there is no zero-parameter constructor 
+        then there is an error
+
+        Use ":" then base constructor "base(parameter)"
+
+    Inheritance allows one class to automatically have all methods, fields, properties, etc.
+        of another class. 
+        you can override the methods or properties of the parent class
+        methods or properties have to be marked "virtual" otherwise they can't be overridden
+            with keyword "override"
+        Object class is the base class for all classes
+            has ToString() method
+                Console.WriteLine() uses Object.ToString() for objects
+        C# allows "method hiding"
+            if an object is derived but casted to its parent and is the hidden
+                method is called, the parent method will be run
+Modifiers
+    Static: Classes can't be instantiated and all of their members must be Static
+    Abstract: 
+        Class:
+        no, some, or all method implementations
+        a class can only inherit from one class
+        several classes will use the same implementation of some methods but different for others 
+        put the common code in an abstract class, and let the others inherit from it 
+        abstract methods don't have implementations
+    readonly 
+        used only on fields 
+        can be changed only while the constructor is running
+    new 
+        used for intentional "method hidding"
+    sealed
+        used on class: cannot be extended
+        used on methods: cannot be overridden if previously overridden 
+    partial 
+        class: allows you to have two files that have the same name in the same namespace 
+    async
+        only on members: allows for code to run in a non-linear manner
+
+    
