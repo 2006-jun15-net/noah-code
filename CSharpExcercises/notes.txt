@@ -119,4 +119,62 @@ Modifiers
     async
         only on members: allows for code to run in a non-linear manner
 
+Serialization
+    putting the memory of objects inside the program into a serialized format
+    deserialization is the opposite
+
+    -text format:
+        JSON, XML
+            human readable and computer readable
     
+    -binary format
+        Protobuf
+
+    in .NET: 
+        XML
+            XmlSerializer (old, isn't generic) 
+            DataContractSerializer 
+        JSON
+            DataContractSerializer
+            JSON.NET (aka Newtonsoft Json) (third-party)
+            System.Text.Json (recently built-in)
+
+Threads 
+    in C#, rather than work with threads directly we use Tasks
+        it's a layer of abstraction over threads 
+
+    Tasks
+        a task is an object representing a long-running operation that
+            may or may not have some Result that will later be available
+        We use the "await" operator to extract that Result in a way that 
+            lets other code run in the meantime 
+        Look for an "Async" version of the method you would otherwise be calling to 
+            get the task
+        any method that uses "await" needs to itself become an asyn method
+    When doing something async:
+    1. call Async version of whatever library method
+    2. await that task 
+    3. mark the current method with the async modifier 
+    4. if the method returns type T, change it to Task<T>
+    5. as a matter of convention, add the Async suffix to your method name.
+        (continue again from step 1 on the parts of your code that are now broken)
+
+File IO 
+    new FileStream(filePath, FileMode) file mode is how to open the file (e.g FileMode.create 
+        creates a file and replace one if it has the same name)
+    IDisposable
+        the CLR manages memory for all CLR objects with garabage collection
+            otherwise there would be memory leaks if you failed to clean up any object 
+        any time you have .NET code open or access some resource OUTSIDE the CLR 
+            (like the hard drive), you do need to manually tell it when you are done to avoid problems
+        the IDisposable interface is implemented for any class that you need to do this for
+            call the Dispose() method 
+        use a try, catch, finally to ensure Dispose() method is called in the finally block
+
+C# has an operator "?." which calls a method(or access a property/field/etc.)
+    but only if the thing to the left is not null
+C# has a "using statement" to replace the "resource = null, try, finally, resource.Dispose()"
+    using(var fileStream = new FileStream(filePath, FileMode.Create))
+    {
+
+    } here, at the closing brace, is effectively "finally {resource?.Dispose()}
