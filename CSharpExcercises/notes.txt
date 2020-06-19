@@ -178,3 +178,42 @@ C# has a "using statement" to replace the "resource = null, try, finally, resour
     {
 
     } here, at the closing brace, is effectively "finally {resource?.Dispose()}
+
+4 pillars of OOP 
+    abstraction 
+        - separation between needed functionality and implementation details
+        - generalizing common characteristics of things into classes, interfaces, etc.
+            ex) C#: interfaces, simple types like string, int 
+    encapsulation 
+        -grouping related things (data & behavior) as an indivisble unit
+            an object should control access and establish rules about its own data 
+        -access modifiers allow encapsulation 
+    polymorphism 
+        - method overriding
+        - method overloading 
+        - ability to substitute different implementations freely
+        - treat derived-type objects like base-type objects 
+        - methods that accept delegates
+    inheritance 
+        - one class can automatically have the data-structure and behavior 
+            of another class 
+
+SOLID principles 
+    Single responsibility principle 
+        classes and methods should do only one thing 
+    Open/close principle 
+        software entities should be open for extension but closed for modification 
+            don't modify your existing code all the time, ideally make it extensible in the first place 
+                ex) properties instead of fields, using interfaces, non-sealed classes 
+            allow for polymorphism 
+    Liskov substitution principle 
+        it should always be possible to replace base-type objects with derived-type objects without
+            violating the correctness of the program 
+    Interface segregation principle 
+        prefer many focused interfaces to few large interfaces 
+            (e.g. and IInputOutput interface maybe should be IInput and IOutput, two separate interfaces ) 
+        consumers of those interfaces only require what they actually need to be implemented,
+            rather than everything 
+    Dependency inversion principle 
+        depend on interfaces rather than on concrete classes 
+            loose coupling rather than tight coupling 
