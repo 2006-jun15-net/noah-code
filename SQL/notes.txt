@@ -1,0 +1,62 @@
+Delegates
+    C# gives the ability to treat functions or methods
+        like any other piece of data like int or Product etc.
+    when we're treating methods as data, we call them Delegates
+    There are "delegate types" that represent groups of those delegate values
+        (e.g. Action, Func)
+    Any delegate can fit in a delegate type based on having the same return type and
+        method parameter types
+
+    You can define your own delegate type e.g.:
+        public delegate void StringAction(string text);
+
+    ex) Func<int, int, string>: method that takes two ints returns string
+        Action<int, int, string>: method that takes two ints and a string returns void
+
+Lambda Expressions
+    ex) x => Console.WriteLine(x.ToLower());
+    This expression can be passed into a method as an argument
+
+Extension methods
+    These are just static methods but they appear to be added to an existing type 
+    use "this" before the first parameter in the parameter list
+    then call like: value.ExtensionMethod();
+    extension methods are just "syntatic sugar" for static methods
+
+LINQ - Language-Integrated Query
+    Class full of extension methods for the IEnumerable interface(the one that all collection implement)
+    LINQ methods fit into one of a few catagories:
+        1. the ones that return some concrete value - e.g. first, Average, Max, Min, Count, Sum
+            these ones run right away
+        2. the ones that return a sequence (IEnumerable) - e.g. Select, Where, OrderBy, Distinct  
+            these ones don't run "yet" - the collection will only really be processed if you loop over it later
+            this is called "deferred execution" 
+        3. stuff that returns a concrete collection e.g. ToList()
+            these ones run right away - by calling ToList at the right time, you can
+                take control over that "deferred execution" behavior
+        None of them ever modify the original list
+    
+    LINQ has two syntaxes - all that is the "method syntax"
+    there's also the "query syntax"
+        ex) from s in strings
+            where s.Length > 0
+            select s[0];
+
+    in different contexts, sometimes the sequence processing stuff is converted into something besides
+        regular C#. for example there is "LINQ to SQL". There's two copies of each LINQ method,
+        one for IEnumerable, one for IQueryable
+
+Events
+    another kind of "member" like properties, fields, and methods
+    an event supports 3 operations:
+        - subscribe +=
+        - unsubscribe -=
+        - call/publish ()
+
+    every event needs a void return delegate type to define what parameters can 
+        and will be sent along with the event
+
+Nullable Value type
+    use ? to allow value types to have a null value
+    e.g. int? x = null;
+
