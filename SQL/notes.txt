@@ -60,3 +60,121 @@ Nullable Value type
     use ? to allow value types to have a null value
     e.g. int? x = null;
 
+Relational Database
+    tables
+        rows
+        columns(with data types)
+
+    SQL structured query Language
+        1) software that plans out the most efficient way to get some needed result from the dataset
+        2) the language we use to tell the software what we want(declarative)
+    SQL variants: 
+        MySQL
+        Oracle SQL
+        SQL Server - Transact-SQL aka T-SQL
+        PostgreSQL
+        SQLite
+    Azure cloud
+        ways to manage azure:
+            https://portal.azure
+            azure CLI
+            VS & VS  Code
+
+        Dev Essentials free trial
+            for the next 1 month:
+                $200 credit(permanent notification)
+                prices are all as normal for a non-free-trial subscription
+            at the one-month mark:
+                you'll need to upgrade from 
+                "Free Trial" subscription to "Pay As you Go" subscription
+            for the next 11 months:
+                certain azure services have their own "free monthly usage" allowed
+                    (e.g. 1 month of standard-size SQL Server db)
+        Everything in azure needs to be parts of a "resource group"
+        we'll create:
+            resource group  
+                SQL Server
+                    SQL database
+   
+SQL
+    DML data manipulation language
+        these operate on individual rows of tables at a time
+        SELECT (querying/ readonly access)
+        INSERT
+        UPDATE
+        DELETE
+    DDL data definition language 
+        these create or modify objects in the database like tables
+        CREATE TABLE, CREATE FUNCTION, etc.
+        ALTER TABLE, ALTER VIEW, etc
+        DROP TABLE, DROP PROCEDURE, etc 
+        TRUNCATE TABLE (remove all rows from a table)
+    DCL data control language 
+        these have to do with users, user permissions
+
+    SELECT  
+        1. FROM what tables should be accessed and possibly joined with others
+        2. WHERE filtering rows from those tables on a condition 
+        3. GROUP BY grouping sets of rows into one based on having some values in common
+        4. HAVING another stage of filtering that can run after the aggregation of GROUP BY
+        5. SELECT list the columns we want in the output, and maybe transform the values 
+        6. ORDER BY sorting the result rows
+    semicolons, not required
+    numbers like 123, text like 'abc' 
+    the like operator takes a special template string to compare with
+		-- _ means any one character
+		-- % means any character
+		-- [abc] means one of a, b, or c
+    Examples:
+        Select * from Employee;
+        Select '9' + Convert(VARCHAR, 4 + 5);
+            //99
+        Select FirstName, LastName from Employee Where LastName
+
+    Aggregate functions 
+        accept many values and return one
+            count, sum, avg, min, Max
+    
+    Joins
+        Cross Join, each row with each row in the other table
+        Inner Join: just the rows that match
+        Left Join: all of left and only rows that match in right
+        Right Join: all of right and only rows that match in left 
+        Full join: all rows of both tables 
+    
+    Use IS NULL and IS NOT NULL for null values
+
+    Sets 
+        UNION: gives all rows that are found in either query, without duplicates
+        UNION All: keeps duplicates
+        INTERSECT: all rows that are in both queries (no duplicates)
+        EXCEPT: all rows that are in the first query that are not in the second query
+
+    INSERT INTO 
+        Examples:
+            INSERT INTO Genre VALUES (100, 'Miscelleanous');
+            INSERT INTO Genre (GenreId) VALUES (100, 'Miscelleanous');
+    UPDATE
+        Examples:
+            UPDATE Genre SET Name = 'Misc 1'; --without where this would modify every row
+            where GenreId = 101;
+    DELETE -- without where, it would delete every row (one by one)
+    TRUNCATE TABLE -- deletes all rows all at once
+
+RDBMS anomalies
+    update anomaly 
+    deletion anomaly 
+    insert anomaly
+
+    normalization:
+        addresses anomalies, reduces redundancy
+
+        functional dependency: a relationship between two pieces of data or attributes
+            for any value of x, then there's only one y
+            if two rows have the same x value then they have to have the same y 
+            x and y can be multiple columns 
+        canidate key:
+            minimal set of columns that every other column is dependent on 
+            often the set is size one 
+        
+        Normal Forms
