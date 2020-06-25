@@ -318,11 +318,11 @@ Entity Framework Core
         one class per table with properties matching the columns 
     Designing
         2 approaches: 
-            data-base first:
+            data-base first: (reverse engineering or scaffolding)
                 create SQL database first
                 use EF to generate code based on the database for the model
                 any tim e the data structure needs to change, we modify the database first and then re-generate the model 
-            code-first:
+            code-first: (migrations)
                 write the model by hand in C#
                 use EF to generate migrations 
                 use EF to apply migrations(create and modify the database)
