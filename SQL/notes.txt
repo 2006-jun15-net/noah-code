@@ -177,4 +177,159 @@ RDBMS anomalies
             minimal set of columns that every other column is dependent on 
             often the set is size one 
         
-        Normal Forms
+    schema - namespace for tables and similar objects outside tables
+        the default is dbo otherwise you need to refer to the table like "schemaname.tablename"
+    ID columns:
+        Incrementing integer starting at 1 (identity)
+        GUID - global unique identifier, random really long number 
+        hi-lo sequence, some advantages of both
+
+    Constraints:
+        IDENTITY (autoincrement an integer - does not allow manual inserts)
+        NULL (explicitly mark the default allwoing of nulls in that column)
+        NOT NULL (null not allowed)
+        PRIMARY KEY (implies not null and unique, identifier for the row)
+        FOREIGN KEY (carry a reference to another column, and must have a valid value from that column)
+        UNIQUE 
+        CHECK (checking any expression to be true for a row )
+        DEFAULT 
+
+    You can create constraints after the fact on an existing table with ALTER TABLE
+    ALTER TABLE (schema.tablename) 
+        ADD CONSTRAINT (Constraint name) PRIMARY KEY(columnname(s))
+    ALTER TABLE (schema.tablename) 
+        ALTER COLUMN (columnname) (type and constraint)
+
+    Multiplicity
+        When modelling data, an aspect of their relationships is called multiplicity
+        one-to-one  
+            technically impossible SQL between two tables - can do one-to-(zero-or-one)
+                with a UNIQUE NOT NULL FOREIGN KEY one one of the tables
+            or just put "both" parts of data in the same table.
+        many-to-one (e.g. one customer places many orders, each order is placed by one customer) 
+            need two tables
+            with FOREIGN KEY on the table for the "many" side (e.g. order)
+        many-to-many (one student is in many courses, one course has many student)
+            have a third table for the relationship itself
+                having NOT NULL FOREIGN KEYS pointing to the main two tables where together they make the primary key
+            this third table is called a "join table" or a "junction table"
+
+        Whenever you put a foreign key on a table,
+        you're saying that row can have at most ONE corresponding row in the OTHER table
+        Foreign keys don't do anything but throw errors when you would be violating 
+            referential integrity so we use (e.g ON DELETE CASCADE, ON UPDATE CASCADE)
+        
+    Computed columns
+        the value is computed when read, not stored
+        with option PERSISTED the value is stored
+            use the "AS" keyword
+
+    Views - computed tables
+        SCHEMABINDING - prevents modifying physical tables that are used to make the view 
+
+    Variables
+        DECLARE (@variablename) (type)
+        or 
+        SET (@variablename) (type)
+
+        variables can be tables 
+            DECLARE @tablename AS TABLE(
+                columns
+                .
+                .
+                .
+            );
+
+    User-Define Functions (pretty much SELECT queries)
+        CREATE FUNCTION functionname(parameters) 
+        RETURNS type 
+        AS 
+        BEGIN 
+            Content
+            RETURN value
+        END
+
+        can have table valued functions: functions that return tables
+
+        BEGIN and END are necessary only for more than one statement 
+
+        Functions can have schemabinding 
+    
+    Stored Procedures or just Procedures 
+        Where functions only read data from the database, Procedures can modify the database
+        must use the EXCUTE keyword 
+        no return value but can have multiple input and output variables 
+
+    Triggers
+        AFTER, INSTEAD OF 
+        CREATE TRIGGER triggername ON tablename 
+        (AFTER or INSTEAD OF) (UPDATE, INSERT, DELETE)
+        AS
+        BEGIN
+            Content
+        END 
+    
+    Transactions
+        ACID properties of a transaction 
+            Atomic
+                the operation succeeds entirely or has no effect 
+                no partial success is allowed 
+            Consistent 
+                not allowed to violate database constraints 
+            Isolated 
+                concurrent transactions should not be able to interfere with each other 
+            Durable
+                the transaction is not considered done until it's written to permanent 
+                    (non-volatile) storage 
+
+        SQL in general supports transactions with 
+        BEGIN TRAN 
+        COMMIT TRAN 
+
+        IN T-SQL, every statement is already its own transaction 
+            but we can have multi-statement transactions w/
+                BEGIN and COMMIT TRANSACTION 
+        ROLLBACK TRANSACTION undoes transaction up to latest or specified savepoint
+        SAVE TRANSACTION creates a savepoint 
+
+        Isolation levels
+            dirty read - read_uncommited allows dirty read
+                nonrepeatable read - read_commited(Default in SQL Server) prevents dirty read
+                    repeatable prevents nonrepeatable
+                        phantom read 
+                            serializable prevents phantom read 
+
+
+Entity Framework Core 
+    Object Relational Mapper (ORM)
+        software that translates between SQL and Object-oriented data and operations 
+        java - Hibernate
+        .NET Framework - Entity Framework (EF) 
+        .NET Core - EF Core 
+        Dapper(lightweight 3rd party)
+    Before ORMs, there was ADO.NET to directly send SQL strings 
+    EF is built on top of ADO.NET 
+
+    EF classes:
+        DbContext - represents a whole database
+        DbSet<T> - represents a table corresponding to class<T>
+    our classes: (the "model") 
+        MyAppDbContext - inherit from DbContext, adding DbSet properties for each table, + config 
+        one class per table with properties matching the columns 
+    Designing
+        2 approaches: 
+            data-base first:
+                create SQL database first
+                use EF to generate code based on the database for the model
+                any tim e the data structure needs to change, we modify the database first and then re-generate the model 
+            code-first:
+                write the model by hand in C#
+                use EF to generate migrations 
+                use EF to apply migrations(create and modify the database)
+                any time the data structure needs to change, we modify the C# classes(model), and   
+                    then generate a migration and apply it to the database 
+    Run-time:
+        MyAppDbContext objects  
+            DbSet objects 
+                entities 
+        communicates with SQL rows 
