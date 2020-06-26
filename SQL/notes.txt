@@ -333,3 +333,23 @@ Entity Framework Core
             DbSet objects 
                 entities 
         communicates with SQL rows 
+
+    EF by default loads one table at a time
+    There are 3 ways to tell EF to fill other tables in 
+
+    1. eager loading: call Include and maybe ThenInclude methods(do this)
+    2. Lazy loading: can be eenabled in the dbcontext options (don't do this)
+        it will load each navigation property in the moment you access it
+        this causes queries for each time you want to load a new table 
+    3. explicit loading (rarely used): given an actual object taken from the context we can tell EF to fill in indvidual properties 
+
+    Good practices with EF:
+    1. pay attention to when the query is actually sent to the DB 
+    2. try to get all the data you need at a given moment in  one query rather than several 
+    3. use eager loading (Include) rather than lazy or explicit 
+
+    Update
+        every object that you pull from the context is "tracked" by the context when you call SaveChanges,
+            the context will send all changes that have been noticed automatically on the tracked entities 
+    delete
+        first get the object you want to remove then delete and save changes 

@@ -61,15 +61,15 @@ namespace ChinookApp
 
         static void Main(string[] args)
         {
-            DisplayData();
+            //DisplayData();
 
-            Console.WriteLine("\nAdding some data...");
-            AddSomeDataFromUserInput();
+            //Console.WriteLine("\nAdding some data...");
+            //AddSomeDataFromUserInput();
 
-            DisplayData();
+            //DisplayData();
 
-            Console.WriteLine("\nUpdating some data...");
-            UpdateSomeData();
+            //Console.WriteLine("\nUpdating some data...");
+            //UpdateSomeData();
 
             DisplayData();
 
@@ -81,12 +81,21 @@ namespace ChinookApp
 
         public static void DeleteSomeData()
         {
-            throw new NotImplementedException();
+            using var context = new ChinookContext(Options);
+            Employee emp = context.Employee
+                .First(e => e.FirstName == "Jack" && e.LastName == "Johnson");
+            context.Remove(emp);
+            context.SaveChanges();
         }
 
         public static void UpdateSomeData()
         {
-            throw new NotImplementedException();
+            using var context = new ChinookContext(Options);
+            Employee emp = context.Employee
+                .First(e => e.FirstName == "John" && e.LastName == "Smith");
+            emp.FirstName = "Jack";
+            emp.LastName = "Johnson";
+            context.SaveChanges();
         }
 
         public static void AddSomeDataFromUserInput()
@@ -101,6 +110,7 @@ namespace ChinookApp
             newEmp.FirstName = fn;
             newEmp.LastName = ln;
             context.Add(newEmp);
+            context.SaveChanges();
             
         }
 
