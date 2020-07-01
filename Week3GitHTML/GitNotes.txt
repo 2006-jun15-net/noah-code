@@ -1,0 +1,49 @@
+git
+    local repo
+        Working tree/Working directory
+            everything besides the .git folder
+            what is visible to programs that aren't aware of git 
+        Add
+            index/staging area
+            for preparing the next commit
+            inside the .git folder 
+        commit history
+            graph of the history "permanent"
+            inside .git folder
+        
+        Checkout, restore
+            goes from add to working directory
+            goes from commit to working directory 
+        revert, reset
+            goes from commit to staging 
+
+        diff
+            compares what is in staging area vs what is in the working directory 
+            compares staging to commit 
+    
+    remote repo
+        commit history
+        push and pull
+
+    Branches
+        represents a line of development, one line tracing back through commit history
+        concretely, it's just a named pointer to one particular commit, which will move 
+            forward on new commits
+        
+        origin/master
+            remote-tracking branch which is "read-only" that showws the most updated view
+                of what origin has for master 
+            updated with git fetch or git pull or git push 
+
+        HEAD - the commit you're on now (you can move away from a branch to some commit in the history
+            - this is called "detached HEAD")
+
+        git pull = git fetch + git merge
+
+        merge   
+            merging some other branch into the current branch
+            by defalut, the remote-tracking counterpart of this branch e.g. origin/master
+
+            given all the changes the other branch has and this one doesn't, make a new commit adding those changes
+HTML 
+    

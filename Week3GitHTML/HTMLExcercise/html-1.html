@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                height: 100vh;
+            }
+            img {
+                width: 50px;
+                height: 50px;
+
+            }
+            div > img {
+                width: 75%;
+                border-style: solid;
+                border-width: 5px;
+                padding: 10px;
+            }
+            #socialmedia{
+                position: relative;
+                bottom: 5px;
+            }
+            table, thead, td {
+                border: 1px solid black;
+            }
+            thead{
+                text-align: center;
+            }
+            #experience{
+                vertical-align: top;
+            }
+        </style>
+        <title>HTML Excercise</title>
+
+    </head>
+    <body>
+        <div>
+            <img src = https://ww1.prweb.com/prfiles/2018/01/03/15051815/Revature_CMYK.png />
+        </div>
+        
+        <div>
+            <h1>About</h1>
+        </div>
+        <p>Some text about the website.</p>
+        <br>
+        <div>
+            <h2>Our Locations</h2>
+            <ul>
+                <li>
+                    USA
+                    <ul>
+                        <li><a href = "./html-1.html">New York</a></li>
+                        <li><a href = "./html-1.html">Columbus</a></li>
+                        <li><a href = "./html-1.html">Austin</a></li>
+                        <li><a href = "./html-1.html">Philly</a></li>
+                    </ul>
+                </li>
+                <li>
+                    World
+                    <ul>
+                        <li><a href = "./html-1.html">Ottawa</a></li>
+                        <li><a href = "./html-1.html">Sydney</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2>Upcoming Classes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <td><strong>Location</strong></td>
+                        <td><strong>Topic</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>New York</td>
+                        <td>JavaScript & jQuery</td>
+                    </tr>
+                    <tr>
+                        <td>San Francisco</td>
+                        <td>HTML & CSS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h2>Sign Up!</h2>
+            <form>
+                <div>
+                    <label>Name: <input type = "test" name = "name"/></label>
+                </div>
+                <div>
+                    <lable>Email: <input type = "email" name = "email"/></lable>
+                </div>
+                <div>
+                    Location:
+                    <select>
+                        <option value = "New York">New York</option>
+                        <option value = "San Francisco">San Francisco</option>
+                    </select>
+                </div>
+                <div>
+                    <fieldset>
+                        <legend>Gender:</legend>
+                        <label>
+                            Female<input type = "radio" value = "Female" name = "Gender"/> 
+                        </label>
+                        <label>
+                            Male<input type = "radio" value = "Male" name = "Gender"/> 
+                        </label>
+                    </fieldset>
+                </div>
+                <div>
+                    <label for = "experience">Experience:</label>
+                    <br>
+                    <textarea type = "textArea" id = "experience"></textarea>
+                </div>
+                <div>
+                    <input type = "submit" value = "Sign Up"/>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div id = "socialmedia">
+            <span><a href = "./html-1.html">Twitter</a> |</span>
+            <span><a href = "./html-1.html">Facebook</a> |</span>
+            <span><a href = "./html-1.html">Flickr</a></span>
+        </div>
+    </body>
+</html>

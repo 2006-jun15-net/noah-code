@@ -1,0 +1,26 @@
+HTTP request and response
+    response    
+        HTML file -> rendered by user's browser 
+        other files like CSS, JS, image
+        redirection(302 status code) - broweser will request a different URL 
+        error page(HTML file) 
+
+    request to a URL
+        input can be:
+            from user clicking links
+                - in the URL:
+                    part of the path or part of the query string (?a=b&c=d) 
+            from browser submits form     
+                - in the body 
+
+We need a web server or at least something that acts like one
+    software that waits for HTTP requests, and run logic that we control to send
+        back HTTP responses 
+
+2 simple implementations: 
+    - automatically respond to every request with "hello world" HTML
+    - for every request, look at the URL, interpret it as a relative path on the file system, and return that file 
+
+ASP.NET Core
+    framework for any kind of app that handles HTTP requests 
+            
