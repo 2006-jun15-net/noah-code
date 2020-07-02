@@ -23,4 +23,20 @@ We need a web server or at least something that acts like one
 
 ASP.NET Core
     framework for any kind of app that handles HTTP requests 
+
+1. routing - which controller, and which action method in the controller 
+2. instantiate the controllere and call the method 
+3. action method executes (our code)
+    return some IActionResult object
+4. result execution (serialization)
+    the result object is written to the HTTP response and sent 
+
+MVC (Model View Controller) Design Pattern
+
+    3 service lifetimes:
+        1. singleton: one instance for the whole app lifetimes
+        2. scoped: one instance per HTTP request cycle, shared by anthing within that one request's scope 
+            (default)
+        3. transient: a new instance for every time a different object needs one 
+
             
