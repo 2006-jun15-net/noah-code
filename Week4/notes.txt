@@ -1,0 +1,66 @@
+Softwware development lifecycle (SDLC)
+    Waterfall model
+    1. requirements 
+    2. design 
+    3. build/code 
+    4. test 
+    5. deploy/release 
+
+    rigid, once one phase is done its done 
+    too rigid for most software projects
+    Good if requirements are know 100% in advance 
+    Good for info security, maybe the team that codes and tests does not have access
+        to the info that went into the design 
+    
+    V-model 
+        left hand side = waterfall layout 
+        right hand side = testing 
+
+    Iterative models 
+        we want to iterate, be able to go back
+        -Spiral model 
+            several mini waterfalls 
+    
+    Agile methodology 
+        -continually seek user feedback and feed it back in to dev 
+        - split up our requirements into relatively independent user stories
+            and each one can be worked on in parallel 
+        - speed over careful planning & documentation 
+        - everyon invloved in the project communicating frequently(especially face to face)
+        - dev team self-evaluation 
+        Implementations: 
+            -scrum 
+                planning:
+                define each iteration as a "sprint" 
+                sprint lasts 2-6 weeks 
+                    every sprint begins with a planning meeting 
+                    decide which user stories to tackle before the end of the sprint 
+                    involves estimating how much effort each user story will take 
+                        "capacity" - estimated number of points we can complete 
+                        "backlog" - the user stories of the sprint 
+                during the sprint: 
+                    each user story will be tracked on a project board
+                        aka scrum board
+                    daily standup meeting aka scrum meeting 
+                        each person says 3 things -
+                        1. what they did in the past day 
+                        2. what they will do this next day 
+                        3. blockers to #2 
+                    the scrum meetings and scrum board are managed by the scrum master 
+                End of the sprint: 
+                    sprint retrospective/review 
+                        "velocity" - how many point actually completed 
+
+            -kanban
+                no sprints 
+                    more ambitious moving further from waterfall 
+                    continuous planning 
+                    continuous coding 
+                    continuous evaluating and adapting 
+                    kanban board(project board)
+                    kanban focuses on limiting work in progress to handle bottlenecks before they occur 
+
+            -CMMI (capability maturity model integration)
+                very process-heavy
+                several different "levels"
+                agile + extra accountability

@@ -39,4 +39,16 @@ MVC (Model View Controller) Design Pattern
             (default)
         3. transient: a new instance for every time a different object needs one 
 
-            
+Convention-based Routing (global routing)
+    general route path for many controllers(user-defined)
+Attribute routing 
+    uses route attributes on action methods 
+    [Route] can specify the path to call the specific action 
+    ex) [HttpPost] , [HttpGet] 
+    Attribute routing separates the route from the global routing 
+
+Filters
+    kind of like helper methods for MVC 
+    way to avoid repeating yourself in your action method 
+    Ex) authorization filters, resource filters, action filters, exception filters, result filters    
+
