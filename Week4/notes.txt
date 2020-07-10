@@ -64,3 +64,31 @@ Softwware development lifecycle (SDLC)
                 very process-heavy
                 several different "levels"
                 agile + extra accountability
+
+virtualization: allows you to isolate operations from everything else
+            virtual machines: run on Hypervisors 
+                isolated from other virtual machines
+                fast to create and destroy virtual machines   
+                hypervisors: pretends to be a hardware, ram, etc. which allows Guest OS to be run on it 
+                    VirtualBox
+                    VMWare
+                    Hyper-V 
+Docker
+    containers 
+        the next evolution of the VM idea to achieve the same goals even more so 
+            -isolation 
+            -repeatability 
+            -fast create/destroy 
+            -efficient with resources 
+        container engine
+            presenting a virtual OS to a process rather than presenting a virtual hardware to an OS 
+        VMs             vs          Containers 
+    images 10s of GB             images are a few megabytes
+
+    create/destroy in s/ms        create/destroy in milliseconds
+
+    from startup to shutdown,       flexibly grow/shrink resource 
+    take up a fixed block of            utilization during runtime, 
+    CPU, RAM, disk, etc.
+
+    99% isolation                       98% isolation
