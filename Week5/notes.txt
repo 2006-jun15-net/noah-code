@@ -1,0 +1,47 @@
+Service-Oriented Architecture (SOA)
+    we manage the complexity by making sure different services 
+        don't depend on each other's implementaion details (abstraction/encapsulation) 
+    we define a "contract" that that is the rules of communication between the different 
+        parts/services 
+
+    app could be more resilient to hardware failures, software failures, etc. 
+
+    general ways to communicate/define the contract: 
+        contract first
+        contract last 
+        RPC (Remote Procedure Call): thinks of the communication as "calling methods over HTTP (or something)" 
+        SOAP/Web Services 
+        REST (over HTTP)
+
+Web Services standards
+SOAP (protocol for sending messages between web services)
+    messages are XML documents 
+        XML Schema to validate those messages 
+        required structure of a SOAP message: 
+            envelope element 
+                header element (optional) (metadata)
+                    body element 
+    typically sent over HTTP POST methods 
+    client-server distinction request/reponse cycle 
+    the contract between SOAP server & client is a WSDL document 
+
+    WSDL (Web Services Description/Definition Language)
+        contract for a web service, as an XML document 
+        define all data types, all endpoints that can be reached,
+            what transport protocol to send the XML over (e.g. HTTP) 
+            what URL the services are located at, etc, error behavior 
+     
+     SOAP in .NET   
+        framework called WCF(Windows Communication Foundation)
+            only for .NET Framework
+        .NET Core we can do SOAP clients, but not SOAP servers, at least not with WCF
+        in WCF 
+            enpoints:
+                -address
+                    the URL you need to send requests to 
+                -binding 
+                    what transport protocol to use 
+                -contract 
+                    all the rules for data format, 
+                    what operations the service exposes
+    
