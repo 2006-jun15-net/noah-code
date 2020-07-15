@@ -45,9 +45,10 @@ namespace KitchenService.Controllers
 
         // POST api/fridge
         [HttpPost("items")]
-        public void Post([FromBody] FoodItem item)
+        public FoodItem Post([FromBody] FoodItem item)
         {
             Items.Add(item);
+            return item;
         }
 
         // PUT api/fridge/5
