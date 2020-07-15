@@ -44,4 +44,13 @@ SOAP (protocol for sending messages between web services)
                 -contract 
                     all the rules for data format, 
                     what operations the service exposes
-    
+
+REST (Representational State Transfer)
+    6 constraints 
+    1. Client-server: one side makes a request, one side sends back a response 
+    2. Stateless
+    3. Cache
+    4. Uniform Interface 
+    5. Layered 
+    6. Code On-Demand 
+
