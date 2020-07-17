@@ -1,0 +1,84 @@
+JavaScript
+    not truly OO language 
+    "object-based"
+    
+    weakly/loosely typed 
+    in JS, variables do not have a type 
+        values do have types, but any variable can contain any type 
+        objects in JS can have properties on them added or removed at runtime 
+    JS is interpreted, not compiled - executed as it is read 
+
+    JS is technically ECHMAScript aka ES 
+
+    Data types
+        number 
+            same datatype for whole numbers and fractional 
+            basically a double-precision IEEE floating-point number 
+        typeof returns a string representing a type 
+
+        boolean 
+            Nan always compares false
+        
+        string 
+            single or double quotes 
+            string functions 
+
+        null
+            considered its own data type 
+            typeof says null is object type but its not 
+        
+        undefined 
+            a data type with one possible value
+            if you don't define a variable, undefined is the default value 
+            it's also the return value of functions that don't mean anything 
+                (no void return)
+        
+        object 
+            {} - object literal 
+            you can delete and add properties to objects 
+                properties in JS are like fields in C# 
+            arrays are object with builtin methods 
+            functions
+                typeof for functions says function but it is an object 
+                arrow functions aka lambda expressions in C# 
+                    let multiply = (a,b) => a*b;
+
+        debugger; used as a break point 
+    
+    Scope
+       two possible scopes 
+        global/document 
+            in scope everywhere after the line its assigned (including in other script files)
+        function scope 
+            in scope anywhere in the function in which it was declared 
+            including before it was declared and outside the block it was declared 
+        
+        ES5 added strict mode 
+            any function or file with the string "use strict" as the first expression opts
+                in to better behavior:
+                    - not allowed to assign to variable without explicitly declaring it 
+                    - not allowed to assign to global scope from inside a function 
+        
+        ES6 added block scope
+            via new ways to declare variables besides var: "let" and "const"
+    
+    Type Conversions
+        JS does "implicit conversions" very freely 
+        there's rules for how and when all these conversions happen
+            rules for converting anything to boolean 
+                any value that converts to true in a boolean context is "truthy"
+                the others are "falsey"
+
+                Falsey:
+                    0, -0
+                    NaN 
+                    undefined 
+                    null
+                    false 
+                    '' empty string 
+                everything else including the string "false", empty array , all objects, are all truthy 
+                
+                comparison with equals operators in JS 
+                double equals aka loose equality ==
+                triple equals aka strict equality ===
+                
