@@ -81,4 +81,33 @@ JavaScript
                 comparison with equals operators in JS 
                 double equals aka loose equality ==
                 triple equals aka strict equality ===
-                
+    
+    objects
+        "this" in JS inside a function refers to whatever was to the left of the "." when the function was 
+            actually called
+        "this" behaves differently in arrow functions 
+            regular functions get it from the left of "." when it was called
+            arrow functions use whatever it was where the arrow function was defined.
+            in practice: this means arrow functions are not good as "methods" 
+                but they are good for stuff like linq 
+
+        for(let student of this.students){} //like foreach in C#
+
+        pre-ES6:
+            there are no classes, but there are constructors
+                any function can be used as a constructore if yout put "new" before it when you call it
+                the behavior of "new" is basically: create a new empty object, and provide it as "this" to the function 
+            prototypal inheritance 
+                JS does not have class-based inheritance 
+                objects inherit from other objects 
+
+        ES6 adds classes (including class-based inheritance)
+            as syntatic sugar over prototypal inheritance 
+
+    Functions 
+        callback functions
+            a function (A) passed as a parameter to another function (B),
+                 with the intention that in the course of B excuting, it will (maybe) "call back" to your
+                 function A
+
+        IIFE, immediately-invoked function expression 
