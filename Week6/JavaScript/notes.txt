@@ -1,0 +1,64 @@
+DOM (Document Object Model)
+    DOM is basically the object form of HTML Elements
+    when the DOM is in memory, there are methods we can call to change the HTML Elements
+    accessing the DOM is done via the "document" object 
+        (in global scope, on the global window) 
+        document methods ex:
+            getElementById(); 
+    
+    Every DOM object has properties like:
+        onclick, onload, onhover, etc 
+    the load event fires on an element when it and all of its children are fully loaded 
+    ex: window.onload = function(){whatever you want to do}
+
+    more commonly: window.addEventListener("load", () =>{
+        do it this wayto let many event handlers coexist on the same element/event type
+    });
+
+    or 
+
+    document.addEventListener("DOMContentLoaded", ()=> {
+        this event fires as soon as the whole DOM is created, but not necessarily
+        filled in with downloaded images etc, which is faster
+    })
+
+Events 
+    Event.type = the kind of event like: "click"
+    event.target = the specific element targetted by the event 
+    event.currentTarget = the element that this event listener was attached to 
+    event.preventDefault() = stops whatever the browser's default behavior is 
+        might use preventDefault to stop forms from submitting normally
+        if you want to process / validate info manually in JS 
+
+Bubbling and Capturing
+    Bubbling - the event starts from the inner most nested element and then goes out to parent elements 
+    event.stopPropagation(); stops bubbling from occurring 
+    event.stopImmediatePropagation(); stops all other event handlers on the element from running 
+    Don't use stopPropagation
+
+    Capturing - opposite of bubbling 
+
+    Bubbling is the default, add the argument true to the addEventListener to do capturing 
+
+HttpRequests in JS
+    The browser provides a XMLHttpRequest object/contrustor used for making Http requests 
+        XMLHttpResquest (xhr)   
+            has a readyState property
+                when readyState reaches 4 the request and response is done 
+                readystatechange event listens for the readyState 
+            .status checks for the status code from the response 
+            .responseText is the response body 
+            .responseType sets the type the response will be in 
+            .open(the request method and url go in here)
+            .send() sends the request 
+    built-in to the browser is JSON.parse and JSON.serialize 
+
+Promise
+    like a dotnet task 
+    fetch - a modern replacement for XMLHttpRequest 
+    fetch(url, {headers: {"Accept": "application/json")
+        returns a Promise
+    the response has a json method which returns a promise of the repsonse body deserialized 
+    catch - takes an error function 
+
+AJAX 
