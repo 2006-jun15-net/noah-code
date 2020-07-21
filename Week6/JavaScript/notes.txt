@@ -61,4 +61,6 @@ Promise
     the response has a json method which returns a promise of the repsonse body deserialized 
     catch - takes an error function 
 
-AJAX 
+Server-side JS 
+    e.g Node.js 
+    

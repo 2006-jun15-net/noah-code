@@ -1,0 +1,15 @@
+{
+  "name": "video-watcher",
+  "version": "1.0.0",
+  "description": "video watcher",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -r out/* && cp src/*.html out && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Noah Funtanilla",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^3.9.7"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "deck-of-cards",
+  "version": "1.0.0",
+  "description": "deck-of-cards",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2006-jun15-net/noah-code.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf out dist && tsc && webpack && cp src/*.html dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Noah Funtanilla",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.9.7",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}

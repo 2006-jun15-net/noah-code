@@ -1,0 +1,33 @@
+TypeScript is a typed superset of JavaScript that compiles to plain JavaScript
+    any valid JavaScript is valid TypeScript
+    TypeScript has strongly typed variables which allows compiler checks 
+        and intellisense for compile errors
+
+    TypeScript adds type annotations to JavaScript 
+        it will check thta you've been using variables properly 
+        according to their types, but only at the stage when TypeScript is compiled into JavaScript 
+    
+    npx tsc --init: creates the tsconfig.json file 
+    npm run build: compiles the code 
+
+    Interfaces in TypeScript 
+        purely for type checking, interfaces don't exist in the js 
+    
+    TypeScript uses type inference like var in C#
+
+    Modules
+        a TypeScript file that has an import or export statement 
+        a module has module scope and not in global scope 
+        you must import everthing you want that was exported 
+            import{exported item} from "filepath"
+        you prefix what you want to be visible to other files with export 
+            if you only want to export one thing from a module use export default
+                you don't need brackets in the import statement if you do this 
+
+        module bundler
+            takes many modules and combines them into one js file 
+            webpack is used by Angular to do this 
+            npm install webpack webpack-cli --save-dev
+            webpack.config.js 
+                configures how the modules will be bundled together 
+            run webpack 
