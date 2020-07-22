@@ -1,5 +1,5 @@
 export default interface Deck{
-    DeckId: number;
+    DeckId: string;
     shuffled: boolean;
     remaining: number;
 
