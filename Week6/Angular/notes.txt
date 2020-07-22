@@ -1,0 +1,3 @@
+single-page application
+    javascript handles the views all on one page without creating a whole new page 
+    
