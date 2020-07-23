@@ -1,0 +1,32 @@
+<h3>5. People Component</h3>
+<table>
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Username</td>
+            <td>Email</td>
+            <td>street</td>
+            <td>suite</td>
+            <td>city</td>
+            <td>zip</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of people">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.username}}</td>
+            <td>{{item.Email}}</td>
+            <td>{{item.address.street}}</td>
+            <td>{{item.address.suite}}</td>
+            <td>{{item.address.city}}</td>
+            <td>{{item.address.zip}}</td>
+        </tr>
+    </tbody>
+</table>
+<ul>
+    <li *ngFor="let item of people">
+        {{item.name}}
+    </li>
+</ul>

@@ -1,0 +1,32 @@
+<h3>2. Profile Component</h3>
+<div *ngIf="show">
+    <table>
+        <thead>
+            <tr>
+                <td>User Info</td>
+                <td></td>
+            </tr>  
+        </thead>
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{user.Id}}</td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td>{{user.FirstName}}</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>{{user.LastName}}</td>
+            </tr>
+            <tr>
+                <td>User Name</td>
+                <td>{{user.UserName}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <button #showButton (click)="toggle(showButton)">Hide</button>
+</div>
