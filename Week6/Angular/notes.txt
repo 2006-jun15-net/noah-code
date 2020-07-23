@@ -1,3 +1,60 @@
-single-page application
-    javascript handles the views all on one page without creating a whole new page 
+CORS (Cross-Origin Resource Sharing)
+    you can't use xmlhttprequest, fetch, etc. to send request to another server that isn't the server hosting your application
+    CORS allows some cross-origin requests and rejects others 
+    configure it in the startup file
+        define policies in the configure services method 
+        
+         
+Angular
+    single-page application
+        javascript handles the views all on one page without creating a whole new page 
     
+    typeScript to javascript
+
+    NgModules (aka modules) - the compilation context for components (a TS class)
+
+        components - a reuable class that manages one part of the page 
+
+            template - the HTML + angular stuff 
+                HTML - which the component is in the DOM
+
+                data binding - how you connect data in the component to the DOM  
+
+                pipes 
+                directives 
+
+Services in angular
+    class with an injectable module 
+
+    3 lifetimes 
+        1. providedIn: 'root' - singleton 
+            registering it for the whole app 
+        2. (on a module:) providers: [TheService]
+            one instance of the service within that module 
+        3. (on a component:) providers: [TheService]
+            one instance for each instance of that component
+
+        but whichever lifetime it has, it does need Injectable decorator on it to make it an angular service
+
+        sometimes to use a service you need to import its module in the module you to use it 
+            e.g.: import HttpClientModule
+    
+    HttpClient methods
+        import {HttpClient} from @angular/common/http 
+
+        get<Tclass or Tinterface>(baseUrl/apiRoute).toPromise();
+
+Angular Components 
+    The components are created and destroyed as user navigates through app 
+    the lifecycle has hooks that you can put code on the most common is onInit 
+        ngOnInit runs after angular has wired up this objec to the data binding in the DOM based on its template 
+    The constructor is just for setup that doesn't relate to the template 
+    ngOnInit is for the stuff that does 
+
+In the template, every public memeber of component class is accessible
+    directives 
+        *ngIf
+        *ngFor
+        *ngSwitch 
+
+        *ngFor="let item of items"
