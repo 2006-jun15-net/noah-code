@@ -58,3 +58,25 @@ In the template, every public memeber of component class is accessible
         *ngSwitch 
 
         *ngFor="let item of items"
+
+Testing 
+    https://angular.io/guide/testing 
+    two pieces of software work together to support angular testing 
+    1. karma - test runner application 
+        handle launching browsers, executing the tests in those browsers 
+        and gathering the results into reports, code coverage, etc. 
+    2. jasmine - test library 
+        define & implement all the functions, objects, etc.
+        in this file, describe, beforeEach, it, expect 
+    
+    neither of these are specific to angular, they are common testing tools in 
+    the JS ecosystem they are the default 
+
+    the spec file structure: 
+        describe(subjectUnderTest, functionWithAllTheSpecs)
+
+        "it"(what the subjectUnderTest should do, function)
+
+        expect() - the outcome of the test  
+
+    use spy objects to take the place of actual dependencies of the component 
